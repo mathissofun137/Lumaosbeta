@@ -15020,11 +15020,11 @@ window.setDesktopBackground = setDesktopBackground;
           if (fr && typeof NYX_PROXY_HTML !== "undefined") {
             var needReload = true;
             try {
-              if (fr.getAttribute("srcdoc") && fr.getAttribute("srcdoc").length > 50) needReload = false;
+              if (fr.getAttribute("src") === NYX_PROXY_URL) needReload = false;
             } catch (e) {}
             if (needReload) {
               fr.removeAttribute("src");
-              fr.srcdoc = NYX_PROXY_HTML;
+              fr.removeAttribute("srcdoc"); fr.src = NYX_PROXY_URL;
             }
             var target = url;
             setTimeout(function () {
@@ -16412,7 +16412,7 @@ window.setDesktopBackground = setDesktopBackground;
               setTimeout(sendNavigate, 1200);
             };
             try {
-              frame.srcdoc = NYX_PROXY_HTML;
+              frame.removeAttribute("srcdoc"); frame.src = NYX_PROXY_URL;
             } catch (e) {
               window.removeEventListener("message", onProxyMsg);
               frame.src = url;
@@ -16763,7 +16763,7 @@ window.setDesktopBackground = setDesktopBackground;
           const fr = document.getElementById("safari-frame");
           if (fr && typeof NYX_PROXY_HTML !== "undefined") {
             fr.removeAttribute("src");
-            fr.srcdoc = NYX_PROXY_HTML;
+            fr.removeAttribute("srcdoc"); fr.src = NYX_PROXY_URL;
           }
         } catch (e) {}
         return getWispServer();
@@ -17748,7 +17748,7 @@ window.setDesktopBackground = setDesktopBackground;
           const fr = document.getElementById("safari-frame");
           if (fr && typeof NYX_PROXY_HTML !== "undefined") {
             fr.removeAttribute("src");
-            fr.srcdoc = NYX_PROXY_HTML;
+            fr.removeAttribute("srcdoc"); fr.src = NYX_PROXY_URL;
           }
         } catch (e) {}
       }
