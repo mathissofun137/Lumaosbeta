@@ -14500,7 +14500,7 @@ window.setDesktopBackground = setDesktopBackground;
 
 
     // ===== Safari: Scramjet v2 stack via Wisp transport (libcurl) + DuckDuckGo =====
-    const NYX_PROXY_URL = "https://fastly.jsdelivr.net/gh/mathissofun137/Lumaos@main/index.svg";
+    const NYX_PROXY_URL = new URL("proxy/index.svg", location.href).href; // local fork copy, served from the same origin as this page
     const NYX_PROXY_HTML = "<!DOCTYPE html><html><head><meta charset=UTF-8><title>Lumaos</title><style>html,body{margin:0;height:100%;background:#0b0b0f;color:#eee;font:15px system-ui;display:flex;align-items:center;justify-content:center}a{color:#8cf}</style></head><body><div>Opening SVG proxy…</div><script>location.replace('https://fastly.jsdelivr.net/gh/mathissofun137/Lumaos@main/index.svg')<\/script></body></html>";
 // Direct iframe navigation (no proxy)
     window.addEventListener("message", function (ev) {
